@@ -48,10 +48,29 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            position: relative;
         }
 
         button:hover {
             background-color: #218838;
+        }
+
+        .loading {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border: 3px solid white;
+            border-top: 3px solid #28a745;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .info {
@@ -123,12 +142,18 @@
             <label for="paymentProof">Upload Bukti Pembayaran:</label>
             <input type="file" id="paymentProof" name="paymentProof" required>
 
-            <button type="submit">Kirim</button>
+            <button type="submit">
+                Kirim
+                <div class="loading" id="loading"></div>
+            </button>
         </form>
     </div>
     <script>
         document.getElementById('registrationForm').addEventListener('submit', async function(event) {
             event.preventDefault();
+
+            const loadingIndicator = document.getElementById('loading');
+            loadingIndicator.style.display = 'block'; // Tampilkan indikator loading
 
             const formData = new FormData(this);
             const paymentProof = formData.get('paymentProof');
@@ -163,6 +188,7 @@
                 }
             });
 
+            loadingIndicator.style.display = 'none'; // Sembunyikan indikator loading
             alert('Data berhasil dikirim!');
         });
     </script>
