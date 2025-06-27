@@ -1,77 +1,170 @@
-   <!DOCTYPE html>
-   <html lang="id">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Form Pendaftaran</title>
-       <link rel="stylesheet" href="styles.css">
-   </head>
-   <body>
-       <div class="container">
-           <h1>Form Pendaftaran</h1>
-           <form id="registrationForm">
-               <label for="fullName">Nama Lengkap:</label>
-               <input type="text" id="fullName" name="fullName" required>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
 
-               <label for="whatsapp">Nomor Whatsapp:</label>
-               <input type="text" id="whatsapp" name="whatsapp" required>
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-               <label for="schoolOrigin">Asal Sekolah:</label>
-               <input type="text" id="schoolOrigin" name="schoolOrigin" required>
+        h1 {
+            text-align: center;
+            color: #333;
+        }
 
-               <label>Dapat info dari:</label>
-               <select id="infoSource" name="infoSource" required>
-                   <option value="Cabang Bandung-1 (Tamansari)">Cabang Bandung-1 (Tamansari)</option>
-                   <option value="Cabang Bandung-2 (Buahbatu)">Cabang Bandung-2 (Buahbatu)</option>
-                   <option value="Cabang Bandung-3 (Cimahi)">Cabang Bandung-3 (Cimahi)</option>
-                   <option value="Cabang Bandung-4 (Antapani)">Cabang Bandung-4 (Antapani)</option>
-                   <option value="Cabang Bandung-5 (Abdurrahman Saleh)">Cabang Bandung-5 (Abdurrahman Saleh)</option>
-                   <option value="Cabang Bandung-6 (Kopo)">Cabang Bandung-6 (Kopo)</option>
-                   <option value="Cabang Bandung-7 (Cipacing)">Cabang Bandung-7 (Cipacing)</option>
-                   <option value="Sosial Media">Sosial Media</option>
-                   <option value="lain-lain">lain-lain (bisa diisi teks manual)</option>
-               </select>
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
 
-               <label>Kelas:</label>
-               <select id="class" name="class" required>
-                   <option value="1 SMA">1 SMA</option>
-                   <option value="2 SMA">2 SMA</option>
-                   <option value="3 SMA">3 SMA</option>
-               </select>
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-               <label>Mapel Pilihan 1:</label>
-               <select id="subject1" name="subject1" required>
-                   <option value="Matematika Lanjut">Matematika Lanjut</option>
-                   <option value="Fisika">Fisika</option>
-                   <option value="Kimia">Kimia</option>
-                   <option value="Biologi">Biologi</option>
-                   <option value="Sejarah">Sejarah</option>
-                   <option value="Ekonomi">Ekonomi</option>
-                   <option value="Sosiologi">Sosiologi</option>
-                   <option value="Geografi">Geografi</option>
-               </select>
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-               <label>Mapel Pilihan 2:</label>
-               <select id="subject2" name="subject2" required>
-                   <option value="Matematika Lanjut">Matematika Lanjut</option>
-                   <option value="Fisika">Fisika</option>
-                   <option value="Kimia">Kimia</option>
-                   <option value="Biologi">Biologi</option>
-                   <option value="Sejarah">Sejarah</option>
-                   <option value="Ekonomi">Ekonomi</option>
-                   <option value="Sosiologi">Sosiologi</option>
-                   <option value="Geografi">Geografi</option>
-               </select>
+        button:hover {
+            background-color: #218838;
+        }
 
-               <p>Info untuk pembayaran ke nomor rekening XXXXXXXXXX</p>
+        .info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Pendaftaran</h1>
+        <form id="registrationForm">
+            <label for="fullName">Nama Lengkap:</label>
+            <input type="text" id="fullName" name="fullName" required>
 
-               <label for="paymentProof">Upload Bukti Pembayaran:</label>
-               <input type="file" id="paymentProof" name="paymentProof" required>
+            <label for="whatsapp">Nomor Whatsapp:</label>
+            <input type="text" id="whatsapp" name="whatsapp" required>
 
-               <button type="submit">Kirim</button>
-           </form>
-       </div>
-       <script src="script.js"></script>
-   </body>
-   </html>
-   
+            <label for="schoolOrigin">Asal Sekolah:</label>
+            <input type="text" id="schoolOrigin" name="schoolOrigin" required>
+
+            <label>Dapat info dari:</label>
+            <select id="infoSource" name="infoSource" required>
+                <option value="Cabang Bandung-1 (Tamansari)">Cabang Bandung-1 (Tamansari)</option>
+                <option value="Cabang Bandung-2 (Buahbatu)">Cabang Bandung-2 (Buahbatu)</option>
+                <option value="Cabang Bandung-3 (Cimahi)">Cabang Bandung-3 (Cimahi)</option>
+                <option value="Cabang Bandung-4 (Antapani)">Cabang Bandung-4 (Antapani)</option>
+                <option value="Cabang Bandung-5 (Abdurrahman Saleh)">Cabang Bandung-5 (Abdurrahman Saleh)</option>
+                <option value="Cabang Bandung-6 (Kopo)">Cabang Bandung-6 (Kopo)</option>
+                <option value="Cabang Bandung-7 (Cipacing)">Cabang Bandung-7 (Cipacing)</option>
+                <option value="Sosial Media">Sosial Media</option>
+                <option value="lain-lain">lain-lain (bisa diisi teks manual)</option>
+            </select>
+
+            <label>Kelas:</label>
+            <select id="class" name="class" required>
+                <option value="1 SMA">1 SMA</option>
+                <option value="2 SMA">2 SMA</option>
+                <option value="3 SMA">3 SMA</option>
+            </select>
+
+            <label>Mapel Pilihan 1:</label>
+            <select id="subject1" name="subject1" required>
+                <option value="Matematika Lanjut">Matematika Lanjut</option>
+                <option value="Fisika">Fisika</option>
+                <option value="Kimia">Kimia</option>
+                <option value="Biologi">Biologi</option>
+                <option value="Sejarah">Sejarah</option>
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Sosiologi">Sosiologi</option>
+                <option value="Geografi">Geografi</option>
+            </select>
+
+            <label>Mapel Pilihan 2:</label>
+            <select id="subject2" name="subject2" required>
+                <option value="Matematika Lanjut">Matematika Lanjut</option>
+                <option value="Fisika">Fisika</option>
+                <option value="Kimia">Kimia</option>
+                <option value="Biologi">Biologi</option>
+                <option value="Sejarah">Sejarah</option>
+                <option value="Ekonomi">Ekonomi</option>
+                <option value="Sosiologi">Sosiologi</option>
+                <option value="Geografi">Geografi</option>
+            </select>
+
+            <p class="info">Info untuk pembayaran ke nomor rekening XXXXXXXXXX</p>
+
+            <label for="paymentProof">Upload Bukti Pembayaran:</label>
+            <input type="file" id="paymentProof" name="paymentProof" required>
+
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const paymentProof = formData.get('paymentProof');
+
+            // Upload bukti pembayaran ke Google Drive
+            const driveFormData = new FormData();
+            driveFormData.append('file', paymentProof);
+
+            const driveResponse = await fetch('YOUR_GOOGLE_DRIVE_UPLOAD_URL', {
+                method: 'POST',
+                body: driveFormData
+            });
+
+            const driveData = await driveResponse.json();
+            const paymentProofLink = driveData.link; // Ambil link dari response
+
+            // Kirim data ke Google Spreadsheet
+            await fetch('YOUR_GOOGLE_SCRIPT_URL', {
+                method: 'POST',
+                body: JSON.stringify({
+                    fullName: formData.get('fullName'),
+                    whatsapp: formData.get('whatsapp'),
+                    schoolOrigin: formData.get('schoolOrigin'),
+                    infoSource: formData.get('infoSource'),
+                    class: formData.get('class'),
+                    subject1: formData.get('subject1'),
+                    subject2: formData.get('subject2'),
+                    paymentProofLink: paymentProofLink
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            alert('Data berhasil dikirim!');
+        });
+    </script>
+</body>
+</html>
