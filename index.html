@@ -137,7 +137,7 @@
             const driveFormData = new FormData();
             driveFormData.append('file', paymentProof);
 
-            const driveResponse = await fetch('YOUR_GOOGLE_DRIVE_UPLOAD_URL', {
+            const driveResponse = await fetch('https://drive.google.com/drive/folders/1KN2_FYWM5m8lKuzT0eGLpkweHzs1hnGi?usp=sharing', {
                 method: 'POST',
                 body: driveFormData
             });
@@ -146,7 +146,7 @@
             const paymentProofLink = driveData.link; // Ambil link dari response
 
             // Kirim data ke Google Spreadsheet
-            await fetch('YOUR_GOOGLE_SCRIPT_URL', {
+            await fetch('https://script.google.com/macros/s/AKfycbyk8yPsU5lD9RPZG1COgI4-tgVWi-Z8cCxzenlgABxCfV1p2hmxaWPvxx-3aLVwkERB/exec', {
                 method: 'POST',
                 body: JSON.stringify({
                     fullName: formData.get('fullName'),
